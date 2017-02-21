@@ -1,0 +1,50 @@
+﻿@model EmployeeTest.Models.Employee
+
+@{
+    ViewBag.Title = "Детали";
+}
+
+<h2>Детали</h2>
+
+<div>
+    <h4>Сотрудник</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            Имя
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            Фамилия
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            Дата рождения
+        </dt>
+
+        <dd>
+            @String.Format("{0:dd/MM/yyyy}", Model.Birthday)
+        </dd>
+        
+        <dt>
+            Начальник
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Head.FirstName) @Html.DisplayFor(model => model.Head.LastName)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Изменить", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Назад", "Index")
+</p>
