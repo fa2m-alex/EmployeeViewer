@@ -33,7 +33,7 @@ textarea {
 }
 @font-face {
     font-family: 'BIG JOHN';
-    src: url('../fonts/BIG JOHN.otf') format('opentype');
+    src: url('../fonts/BIG JOHN.otf');
 }
 .navbar .navbar-brand {
     color: #92CDCF;
