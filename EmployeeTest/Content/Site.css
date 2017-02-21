@@ -52,5 +52,10 @@ a {
 
 .jumbotron h1 {
     font-family: 'BIG JOHN';
+    color: #2C3E50;
+}
+
+.pagination li.active a {
+    background: #445878;
 }
 
