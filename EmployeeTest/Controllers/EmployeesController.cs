@@ -15,9 +15,37 @@ namespace EmployeeTest.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Employees
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string searchString)
         {
-            var employees = db.Employees.Include(e => e.Head);
+            //var employees = db.Employees.Include(e => e.Head);
+
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+            var employees = from e in db.Employees
+                           select e;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                employees = employees.Where(s => s.LastName.Contains(searchString)
+                                       || s.FirstName.Contains(searchString));
+            }
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    employees = employees.OrderByDescending(e => e.LastName);
+                    break;
+                case "Date":
+                    employees = employees.OrderBy(e => e.Birthday);
+                    break;
+                case "date_desc":
+                    employees = employees.OrderByDescending(e => e.Birthday);
+                    break;
+                default:
+                    employees = employees.OrderBy(e => e.LastName);
+                    break;
+            }
+
             return View(employees.ToList());
         }
 

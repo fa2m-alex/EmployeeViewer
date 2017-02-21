@@ -9,16 +9,25 @@
 <p>
     @Html.ActionLink("Создать", "Create")
 </p>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Найти: @Html.TextBox("SearchString")
+        <input type="submit" value="Поиск" />
+    </p>
+}
+
 <table class="table">
     <tr>
         <th>
             Имя
         </th>
         <th>
-            Фамилия
+            @Html.ActionLink("Фамилия", "Index", new { sortOrder = ViewBag.NameSortParm })
         </th>
         <th>
-            Дата рождения
+            @Html.ActionLink("Дата рождения", "Index", new { sortOrder = ViewBag.DateSortParm })
         </th>
         <th>
             Начальник
