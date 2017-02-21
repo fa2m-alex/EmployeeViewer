@@ -15,7 +15,6 @@ namespace EmployeeTest.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Employees
-        [Authorize]
         public ActionResult Index()
         {
             var employees = db.Employees.Include(e => e.Head);

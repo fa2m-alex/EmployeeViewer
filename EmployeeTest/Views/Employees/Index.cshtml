@@ -1,27 +1,27 @@
 ﻿@model IEnumerable<EmployeeTest.Models.Employee>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Сотрудники";
 }
 
-<h2>Employees</h2>
+<h2>Сотрудники</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Создать", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            First Name
+            Имя
         </th>
         <th>
-            Last Name
+            Фамилия
         </th>
         <th>
-            Birthday
+            Дата рождения
         </th>
         <th>
-            Head
+            Начальник
         </th>
         <th></th>
     </tr>
@@ -35,15 +35,15 @@
             @Html.DisplayFor(modelItem => item.LastName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Birthday)
+            @String.Format("{0:dd/MM/yyyy}", item.Birthday)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Head.FirstName) @Html.DisplayFor(modelItem => item.Head.LastName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("Изменить", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Детали", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.ID })
         </td>
     </tr>
 }
