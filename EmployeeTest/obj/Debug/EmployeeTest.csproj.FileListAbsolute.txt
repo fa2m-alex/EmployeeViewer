@@ -86,3 +86,7 @@ c:\users\alex\documents\visual studio 2015\Projects\EmployeeTest\EmployeeTest\bi
 c:\users\alex\documents\visual studio 2015\Projects\EmployeeTest\EmployeeTest\obj\Debug\EmployeeTest.csprojResolveAssemblyReference.cache
 c:\users\alex\documents\visual studio 2015\Projects\EmployeeTest\EmployeeTest\obj\Debug\EmployeeTest.dll
 c:\users\alex\documents\visual studio 2015\Projects\EmployeeTest\EmployeeTest\obj\Debug\EmployeeTest.pdb
+c:\users\alex\documents\visual studio 2015\Projects\EmployeeTest\EmployeeTest\bin\PagedList.dll
+c:\users\alex\documents\visual studio 2015\Projects\EmployeeTest\EmployeeTest\bin\PagedList.Mvc.dll
+c:\users\alex\documents\visual studio 2015\Projects\EmployeeTest\EmployeeTest\bin\PagedList.xml
+c:\users\alex\documents\visual studio 2015\Projects\EmployeeTest\EmployeeTest\bin\PagedList.Mvc.xml

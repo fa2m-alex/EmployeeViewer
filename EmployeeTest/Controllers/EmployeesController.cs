@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using EmployeeTest.Models;
+using PagedList;
 
 namespace EmployeeTest.Controllers
 {
@@ -15,12 +16,23 @@ namespace EmployeeTest.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Employees
-        public ActionResult Index(string sortOrder, string searchString)
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            //var employees = db.Employees.Include(e => e.Head);
-
+            ViewBag.CurrentSort = sortOrder;
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+
             var employees = from e in db.Employees
                            select e;
 
@@ -46,7 +58,9 @@ namespace EmployeeTest.Controllers
                     break;
             }
 
-            return View(employees.ToList());
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            return View(employees.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Employees/Details/5
